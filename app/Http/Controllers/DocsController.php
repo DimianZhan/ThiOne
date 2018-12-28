@@ -52,7 +52,7 @@ class DocsController extends Controller
             define('CURRENT_VERSION', $version);
         }
 
-        $sectionPage = $page ?: 'installation';
+        $sectionPage = $page ?: 'ReadMe';
         $content = $this->docs->get($version, $sectionPage);
 
         if (is_null($content)) {
