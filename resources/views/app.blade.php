@@ -35,7 +35,7 @@
             @include('partials.main-nav')
         </ul>
 
-        @if (Request::is('docs*') && isset($currentVersion))
+        @if (isset($currentVersion))
             @include('partials.switcher')
         @endif
 

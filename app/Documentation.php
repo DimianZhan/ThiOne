@@ -43,7 +43,7 @@ class Documentation
     public function getIndex($version)
     {
         return $this->cache->remember('docs.'.$version.'.index', 5, function () use ($version) {
-            $path = base_path('resources/docs/'.$version.'/documentation.md');
+            $path = base_path('resources/docs/'.$version.'/SUMMARY.md');
 
             if ($this->files->exists($path)) {
                 return $this->replaceLinks($version, markdown($this->files->get($path)));
