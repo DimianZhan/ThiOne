@@ -23,8 +23,7 @@
 
     <nav class="main">
         <a href="/" class="brand nav-block">
-            {!! svg('laravel-logo') !!}
-            <span>Laravel</span>
+            <span>ThiOne</span>
         </a>
 
         <div class="search nav-block invisible">
@@ -53,10 +52,7 @@
         </ul>
         <p>Laravel is a trademark of Taylor Otwell. Copyright &copy; Taylor Otwell.</p>
         <p class="less-significant">
-            <a href="http://jackmcdade.com">
-                Designed by<br>
-                {!! svg('jack-mcdade') !!}
-            </a>
+            
         </p>
     </footer>
 

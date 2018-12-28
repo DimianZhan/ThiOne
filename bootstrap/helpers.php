@@ -8,7 +8,7 @@
  */
 function svg($src)
 {
-    return file_get_contents(public_path('assets/svg/' . $src . '.svg'));
+    return file_get_contents(public_path('svg/' . $src . '.svg'));
 }
 
 /**
