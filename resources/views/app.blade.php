@@ -60,7 +60,7 @@
 
     <script>
         var algolia_app_id      = '{{ Config::get('algolia.connections.main.id', false) }}';
-        var algolia_search_key  = '{{ Config::get('algolia.connections.main.search_key', false) }}';
+        var algolia_search_key  = '{{ Config::get('algolia.connections.main.key', false) }}';
         var version             = '{{ isset($currentVersion) ? $currentVersion : DEFAULT_VERSION }}';
     </script>
 
