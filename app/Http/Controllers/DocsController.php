@@ -32,7 +32,7 @@ class DocsController extends Controller
      */
     public function showRootPage()
     {
-        return redirect('docs/'.DEFAULT_VERSION);
+        return redirect('/'.DEFAULT_VERSION);
     }
 
     /**
@@ -45,14 +45,14 @@ class DocsController extends Controller
     public function show($version, $page = null)
     {
         if (! $this->isVersion($version)) {
-            return redirect('docs/'.DEFAULT_VERSION.'/'.$version, 301);
+            return redirect('/'.DEFAULT_VERSION.'/'.$version, 301);
         }
 
         if (! defined('CURRENT_VERSION')) {
             define('CURRENT_VERSION', $version);
         }
 
-        $sectionPage = $page ?: 'ReadMe';
+        $sectionPage = $page ?: 'README';
         $content = $this->docs->get($version, $sectionPage);
 
         if (is_null($content)) {
@@ -74,13 +74,13 @@ class DocsController extends Controller
         if ($this->docs->sectionExists($version, $page)) {
             $section .= '/'.$page;
         } elseif (! is_null($page)) {
-            return redirect('/docs/'.$version);
+            return redirect('/'.$version);
         }
 
         $canonical = null;
 
         if ($this->docs->sectionExists(DEFAULT_VERSION, $sectionPage)) {
-            $canonical = 'docs/'.DEFAULT_VERSION.'/'.$sectionPage;
+            $canonical = '/'.DEFAULT_VERSION.'/'.$sectionPage;
         }
 
         return view('docs', [
