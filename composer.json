@@ -1,10 +1,10 @@
 {
-    "name": "laravel/laravel",
+    "name": "ThiOne",
     "type": "project",
-    "description": "The Laravel Framework.",
+    "description": "ThiOne 思文 Website for Markdown Documention with Version Management",
     "keywords": [
-        "framework",
-        "laravel"
+        "markdown",
+        "documention"
     ],
     "license": "MIT",
     "require": {
