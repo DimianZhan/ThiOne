@@ -448,7 +448,6 @@ body {
   font-family: "Whitney SSm A", "Whitney SSm B", sans-serif;
   font-size: 16px;
   background: #fff url("/assets/img/cloud-bar.png") repeat-x;
-  padding-top: 10px;
 }
 
 h1,
@@ -1684,6 +1683,102 @@ pre.line-numbers > code {
   }
 }
 
+/* Menu bar at top of page.*/
+
+#common_dronecode_menu {
+  top: 0px;
+  height: 22px;
+  padding: 1px;
+  width: 100%;
+  background-color: black;
+  margin: 0 auto;
+  font-size: 14px;
+}
+
+.common_menu_logo {
+  float: left;
+  padding-left: 5px;
+}
+
+.common_menu_logo img {
+  max-height: 18px;
+}
+
+/*Would like to control max height, but seems to be controlled by javascript */
+
+.common_menu_options {
+  float: right;
+  padding-top: 2px;
+}
+
+.common_dronecode_menu_item {
+  float: left;
+  padding-right: 20px;
+}
+
+body .common_menu_options a {
+  color: WhiteSmoke;
+}
+
+/* Unfix header (makes this theme work with theme-api) */
+
+.book-header {
+  position: unset;
+}
+
+/* Push existing docs down to menu height */
+
+.book-summary,
+.book-body {
+  top: 22px;
+}
+
+/* Make text small as screen compresses */
+
+@media only screen and (min-width: 800px) {
+  .common_dronecode_menu_item.large_version {
+    display: inline;
+  }
+
+  .common_dronecode_menu_item.small_version {
+    display: none;
+  }
+
+  .common_menu_logo.large_version {
+    display: inline;
+  }
+
+  .common_menu_logo.small_version {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .common_dronecode_menu_item.large_version {
+    display: none;
+  }
+
+  .common_dronecode_menu_item.small-text {
+    display: inline;
+  }
+
+  .common_menu_logo.large_version {
+    display: none;
+  }
+
+  .common_menu_logo.small_version {
+    display: inline;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .common_dronecode_menu_item {
+    padding-right: 6px;
+  }
+
+  /* Shrink menu padding */
+}
+
 .btn {
   border: none;
   border-radius: 3px;
@@ -2636,12 +2731,12 @@ nav.main .switcher .dropdown-menu > li > a {
 
 .sidebar {
   border-right: 1px solid #f0f2f1;
-  width: 250px;
+  width: 280px;
   float: left;
-  padding: 35px;
+  padding: 25px;
 }
 
-.sidebar h2 {
+.sidebar .chapter {
   position: relative;
   font-size: 14px;
   font-weight: 400;
@@ -2653,15 +2748,15 @@ nav.main .switcher .dropdown-menu > li > a {
   font-family: "Whitney SSm A", "Whitney SSm B", sans-serif;
 }
 
-.sidebar h2:focus {
+.sidebar .chapter:focus {
   outline: 0;
 }
 
-.sidebar h2:hover {
+.sidebar .chapter:hover {
   color: #f4645f;
 }
 
-.sidebar h2:after {
+.sidebar .chapter:after {
   content: "";
   position: absolute;
   right: 0;
@@ -2674,16 +2769,16 @@ nav.main .switcher .dropdown-menu > li > a {
   border-bottom: 4px solid transparent;
 }
 
-.sidebar h2 + ul {
+.sidebar .chapter + ul {
   display: none;
 }
 
-.sidebar h2.is-active:after {
+.sidebar .chapter.is-active:after {
   -webkit-transform: rotate(90deg);
           transform: rotate(90deg);
 }
 
-.sidebar h2.is-active + ul {
+.sidebar .chapter.is-active + ul {
   display: block;
 }
 
@@ -2707,6 +2802,24 @@ nav.main .switcher .dropdown-menu > li > a {
   padding: 0;
   font-size: 13px;
   padding-left: 0.75rem;
+}
+
+.sidebar > ul > li > ul > li {
+  font-size: 13px;
+}
+
+.sidebar > ul > li > ul > li > ul {
+  list-style: none;
+  padding-left: 20px;
+}
+
+.sidebar > ul > li > ul > li > ul > li {
+  font-size: 12px;
+}
+
+.sidebar > ul > li > ul > li > ul > li > ul {
+  list-style: none;
+  padding-left: 20px;
 }
 
 .sidebar a {

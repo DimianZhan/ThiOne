@@ -1,10 +1,10 @@
 .sidebar {
 	border-right: 1px solid $color__faint;
-	width: 250px;
+	width: 280px;
 	float: left;
-	padding: 35px;
+	padding: 25px;
 
-	h2 {
+	.chapter {
 		position: relative;
 		font-size: 14px;
 		font-weight: 400;
@@ -75,6 +75,24 @@
 				padding: 0;
 				font-size: 13px;
 				padding-left: 0.75rem;
+
+				> li {
+					font-size: 13px;
+
+					> ul {
+						list-style: none;
+						padding-left: 20px;
+
+						> li {
+							font-size: 12px;
+							
+							> ul {
+								list-style: none;
+								padding-left: 20px;
+							}
+						}
+					}
+				}
 			}
 		}
 	}

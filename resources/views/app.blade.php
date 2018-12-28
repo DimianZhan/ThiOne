@@ -19,11 +19,13 @@
 </head>
 <body class="@yield('body-class', 'docs')">
 
+    @include('partials.dronecode_menu')
+
     <span class="overlay"></span>
 
     <nav class="main">
         <a href="/" class="brand nav-block">
-            <span>ThiOne</span>
+            <img src="/img/px4_logo.png" width="80" />
         </a>
 
         <div class="search nav-block invisible">
