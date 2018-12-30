@@ -18,8 +18,5 @@ if (! defined('DEFAULT_VERSION')) {
     define('DEFAULT_VERSION', 'master');
 }
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::get('/{version}/{page?}', 'DocsController@show');
+Route::get('/{pageuri?}', 'DocsController@show')
+    ->where('pageuri','^[a-zA-Z0-9-_\/]+$');

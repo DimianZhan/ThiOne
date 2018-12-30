@@ -42,8 +42,14 @@ class DocsController extends Controller
      * @param  string|null $page
      * @return Response
      */
-    public function show($version, $page = null)
+    public function show($pageuri = null)
     {
+        $pageuri = explode('/',$pageuri);
+        $version = array_shift($pageuri);
+        $page = array_pop($pageuri);
+
+        dump($pageuri);
+
         if (! $this->isVersion($version)) {
             return redirect('/'.DEFAULT_VERSION.'/'.$version, 301);
         }
