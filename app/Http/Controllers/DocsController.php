@@ -44,11 +44,14 @@ class DocsController extends Controller
      */
     public function show($pageuri = null)
     {
-        $pageuri = explode('/',$pageuri);
-        $version = array_shift($pageuri);
+        $pageuri = explode('/', $pageuri);
         $page = array_pop($pageuri);
+        $version = array_shift($pageuri);
+        $category = null;
 
-        dump($pageuri);
+        if ( count($pageuri) != 0 ) {
+            $category = implode('/', $pageuri);
+        }
 
         if (! $this->isVersion($version)) {
             return redirect('/'.DEFAULT_VERSION.'/'.$version, 301);
@@ -59,7 +62,7 @@ class DocsController extends Controller
         }
 
         $sectionPage = $page ?: 'README';
-        $content = $this->docs->get($version, $sectionPage);
+        $content = $this->docs->get($version, $category, $sectionPage);
 
         if (is_null($content)) {
             return response()->view('docs', [
@@ -77,17 +80,19 @@ class DocsController extends Controller
 
         $section = '';
 
-        if ($this->docs->sectionExists($version, $page)) {
-            $section .= '/'.$page;
-        } elseif (! is_null($page)) {
-            return redirect('/'.$version);
-        }
+        // if ($this->docs->sectionExists($version, $page)) {
+        //     $section .= '/'.$page;
+        // } elseif (! is_null($page)) {
+        //     return redirect('/'.$version);
+        // }
 
-        $canonical = null;
+        $section .= '/'.$page;
 
-        if ($this->docs->sectionExists(DEFAULT_VERSION, $sectionPage)) {
-            $canonical = '/'.DEFAULT_VERSION.'/'.$sectionPage;
-        }
+        //$canonical = null;
+
+        //if ($this->docs->sectionExists(DEFAULT_VERSION, $sectionPage)) {
+        //    $canonical = '/'.DEFAULT_VERSION.'/'.$sectionPage;
+        //}
 
         return view('docs', [
             'title' => count($title) ? $title->text() : null,
@@ -96,7 +101,7 @@ class DocsController extends Controller
             'currentVersion' => $version,
             'versions' => Documentation::getDocVersions(),
             'currentSection' => $section,
-            'canonical' => $canonical,
+            //'canonical' => $canonical,
         ]);
     }
 
