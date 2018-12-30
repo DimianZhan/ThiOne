@@ -39,7 +39,7 @@
     		border-bottom: 4px solid transparent;
 		}
 
-		& + ul {
+		& > ul {
 			display: none;
 		}
 
@@ -52,7 +52,7 @@
 			}
 		}
 
-		&.is-active + ul {
+		&.is-active > ul {
 			display: block;
 		}
 	}

@@ -2769,7 +2769,7 @@ nav.main .switcher .dropdown-menu > li > a {
   border-bottom: 4px solid transparent;
 }
 
-.sidebar .chapter + ul {
+.sidebar .chapter > ul {
   display: none;
 }
 
@@ -2778,7 +2778,7 @@ nav.main .switcher .dropdown-menu > li > a {
           transform: rotate(90deg);
 }
 
-.sidebar .chapter.is-active + ul {
+.sidebar .chapter.is-active > ul {
   display: block;
 }
 

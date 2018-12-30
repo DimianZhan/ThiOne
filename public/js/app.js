@@ -687,7 +687,9 @@ jQuery(function ($) {
 
   checkSize();
   window.onresize = checkSize;
-  $('.sidebar>ul').children().addClass('chapter'); // gheading links
+  $('.sidebar>ul').children().addClass('chapter');
+  $('.sidebar>h1').hide();
+  $('.chapter>a').addClass('chapterName'); // gheading links
 
   $('.docs-wrapper').find('a[name]').each(function () {
     var anchor = $('<a href="#' + this.name + '"/>');
@@ -824,7 +826,7 @@ jQuery(function ($) {
   } // collapse and expand for the sidebar
 
 
-  var toggles = document.querySelectorAll('.sidebar h2'),
+  var toggles = document.querySelectorAll('.chapter'),
       togglesList = document.querySelectorAll('.sidebar h2 + ul');
 
   for (var i = 0; i < toggles.length; i++) {
